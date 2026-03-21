@@ -117,6 +117,13 @@ class TestEPCParsers(unittest.TestCase):
         """C7: vehicle not connected."""
         self.assertEqual(self._parse(0xC7, b"\x30"), "Vehicle not connected")
 
+    def test_c7_dischargeable(self):
+        """C7: vehicle connected and dischargeable."""
+        self.assertEqual(
+            self._parse(0xC7, b"\x43"),
+            "Connected to vehicle, Dischargeable",
+        )
+
     # New discharge EPCs
     def test_d6_cumulative_discharge(self):
         """D6: cumulative discharging energy (86400 Wh)."""

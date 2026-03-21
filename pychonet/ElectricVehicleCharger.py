@@ -35,7 +35,7 @@ class ElectricVehicleCharger(EchonetInstance):
         0xC4: _int,  # Remaining dischargeable capacity of vehicle mounted battery 3
         0xC5: _unsigned_long,  # Rated charge capacity
         0xC6: _unsigned_long,  # Rated discharge capacity
-        0xC7: [_int, {0x30: "Vehicle not connected", 0x40: "Connected to vehicle, Not chargeable", 0x41: "Connected to vehicle, Chargeable", 0x44: "Connected to vehicle, chargeable status unknown", 0xFF: "Undetermined"}],  # Vehicle connection and chargeable/dischargeable status
+        0xC7: [_int, {0x30: "Vehicle not connected", 0x40: "Connected to vehicle, Not chargeable", 0x41: "Connected to vehicle, Chargeable", 0x43: "Connected to vehicle, Dischargeable", 0x44: "Connected to vehicle, chargeable status unknown", 0xFF: "Undetermined"}],  # Vehicle connection and chargeable/dischargeable status
         0xC8: _max_min_int,  # Minimum/maximum charging electric energy
         0xC9: _max_min_int,  # Minimum/maximum discharging electric energy
         0xCA: _max_min_short_int,  # Minimum/maximum charging current
