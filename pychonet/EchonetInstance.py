@@ -18,14 +18,16 @@ from pychonet.lib.epc_functions import EPC_SUPER_FUNCTIONS
 
 def call_epc_function(epc_function, edt):
     if type(epc_function) == list:
-        if list(epc_function) == 3:
+        if len(epc_function) == 3:
             data = epc_function[0](
                 edt,
                 epc_function[1],
                 epc_function[2],
             )
-        else:
+        elif len(epc_function) == 2:
             data = epc_function[0](edt, epc_function[1])
+        else:
+            data = epc_function[0](edt)
     else:
         data = epc_function(edt)
     return data
