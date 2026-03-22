@@ -118,10 +118,17 @@ class TestEPCParsers(unittest.TestCase):
         self.assertEqual(self._parse(0xC7, b"\x30"), "Vehicle not connected")
 
     def test_c7_dischargeable(self):
-        """C7: vehicle connected and dischargeable."""
+        """C7: vehicle connected, dischargeable only (not chargeable)."""
+        self.assertEqual(
+            self._parse(0xC7, b"\x42"),
+            "Connected to vehicle, Dischargeable",
+        )
+
+    def test_c7_chargeable_and_dischargeable(self):
+        """C7: vehicle connected, both chargeable and dischargeable."""
         self.assertEqual(
             self._parse(0xC7, b"\x43"),
-            "Connected to vehicle, Dischargeable",
+            "Connected to vehicle, Chargeable and Dischargeable",
         )
 
     # New discharge EPCs

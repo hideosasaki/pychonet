@@ -884,6 +884,7 @@ EPC_CODE = {
             0xE2: "Remaining stored electricity of vehicle mounted battery 1",
             0xE3: "Remaining stored electricity of vehicle mounted battery 2",
             0xE4: "Remaining stored electricity of vehicle mounted battery 3",
+            0xE6: "Vehicle ID",
             0xE7: "Charging amount setting 1",
             0xE9: "Charging amount setting 2",
             0xEB: "Charging electric energy setting",
