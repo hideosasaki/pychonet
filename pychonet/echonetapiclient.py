@@ -75,14 +75,6 @@ class ECHONETAPIClient:
         seojci = processed_data["SEOJCI"]
         esv = processed_data["ESV"]
 
-        if isPush:
-            import logging as _logging
-            _logging.getLogger("pychonet.push").warning(
-                f"Push (INF) from {host}: ESV=0x{esv:02x} "
-                f"SEOJ=0x{seojgc:02x}{seojcc:02x}{seojci:02x} "
-                f"OPC={[{hex(o['EPC']): o.get('PDC', '?')} for o in processed_data['OPC']]}"
-            )
-
         if self._state.get(host) is None:  # echonet packet arrived we dont know about
             self._logger(f"Unknown ECHONETLite node has been identified - {host}")
             if callable(self._discover_callback):
