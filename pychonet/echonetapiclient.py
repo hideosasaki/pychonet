@@ -76,7 +76,8 @@ class ECHONETAPIClient:
         esv = processed_data["ESV"]
 
         if isPush:
-            self._logger(
+            import logging as _logging
+            _logging.getLogger("pychonet.push").warning(
                 f"Push (INF) from {host}: ESV=0x{esv:02x} "
                 f"SEOJ=0x{seojgc:02x}{seojcc:02x}{seojci:02x} "
                 f"OPC={[{hex(o['EPC']): o.get('PDC', '?')} for o in processed_data['OPC']]}"
