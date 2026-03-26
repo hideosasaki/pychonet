@@ -161,6 +161,11 @@ class EchonetInstance:
                 ):
                     returned_json_data.update({epc: None})
                     continue
+                elif self._api._state[self._host]["instances"][self._eojgc][
+                    self._eojcc
+                ][self._eojci][epc] is None:
+                    returned_json_data.update({epc: None})
+                    continue
                 elif epc in list(
                     EPC_SUPER_FUNCTIONS.keys()
                 ):  # check if function is defined in the superset

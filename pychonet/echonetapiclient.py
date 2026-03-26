@@ -161,6 +161,10 @@ class ECHONETAPIClient:
                         if opc["PDC"] == 0:
                             if not isPush:
                                 self._failure_list[tid] += 1
+                            # Get_SNA (PDC=0): property unavailable → set state to None
+                            if epc in self._state[host]["instances"][seojgc][seojcc][seojci]:
+                                self._state[host]["instances"][seojgc][seojcc][seojci][epc] = None
+                                updated = True
                             continue
                     else:
                         # @todo more esv support
